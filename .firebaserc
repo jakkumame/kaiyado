@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "kamiyado-17f0c": {
+      "hosting": {
+        "app": [
+          "kamiyado-17f0c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "kamiyado-17f0c"
+  }
+}
