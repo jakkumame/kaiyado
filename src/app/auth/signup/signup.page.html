@@ -1,3 +1,5 @@
+<!-- signup.page.html -->
+
 <ion-header>
   <ion-toolbar>
     <ion-title>Sign Up</ion-title>
@@ -5,18 +7,20 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
-  </ion-list>
+  <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-list>
 
-  <ion-button expand="full">Sign Up</ion-button>
+    <ion-button expand="full" type="submit" [disabled]="signupForm.invalid">Sign Up</ion-button>
+  </form>
 
-  <p>Already have an account? <a routerLink="/login">Login</a></p>
+  <p>Already have an account? <a routerLink="/auth/login">Login</a></p>
 </ion-content>

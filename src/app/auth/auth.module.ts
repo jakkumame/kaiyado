@@ -2,6 +2,7 @@ import { LoginPage } from './login/login.page';
 import { SignupPage } from './signup/signup.page';
 import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -25,6 +26,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     IonicModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
   ]

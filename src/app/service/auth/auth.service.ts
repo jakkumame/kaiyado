@@ -7,7 +7,9 @@ import { authState } from 'rxfire/auth';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(@Optional() public auth: Auth) {}
+  constructor(
+    @Optional() public auth: Auth,
+  ) {}
 
   // ユーザーのログイン機能
   async login(email: string, password: string): Promise<UserCredential> {
@@ -43,4 +45,6 @@ export class AuthService {
   getAuthState() {
     return authState(this.auth);
   }
+
+
 }

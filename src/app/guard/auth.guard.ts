@@ -1,24 +1,35 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  RouterStateSnapshot,
+  UrlTree,
+} from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { AuthService } from '../service/auth/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router, private afAuth: AngularFireAuth) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(): Observable<boolean> {
-    return this.afAuth.authState.pipe(
-      map((user) => {
-        const isLoggedIn = !!user; // ユーザーが存在すればtrue、存在しなければfalse
-        if (!isLoggedIn) {
-          this.router.navigate(['/auth/login']); // ログインしていない場合はログインページにリダイレクト
-        }
-        return isLoggedIn; // ログイン済みの場合は認証を通過
-      })
-    );
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
+    return this.authService
+      .getAuthState()
+      .pipe(
+        mergeMap((user) =>
+          user ? of(true) : this.router.navigateByUrl('/login')
+        )
+      );
   }
 }
