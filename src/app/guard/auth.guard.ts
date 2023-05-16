@@ -5,8 +5,8 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { mergeMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth/auth.service';
 
@@ -17,19 +17,22 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
-    route: ActivatedRouteSnapshot,
+    next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ):
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.authService
-      .getAuthState()
+    return this.authService.getAuthState()
       .pipe(
-        mergeMap((user) =>
-          user ? of(true) : this.router.navigateByUrl('/login')
-        )
+        map((authState: any) => {
+          if (authState) {
+            return true; // ログイン済みの場合は通過
+          } else {
+            return this.router.parseUrl('/auth/login'); // ログインしていない場合はログインページにリダイレクト
+          }
+        })
       );
   }
 }
