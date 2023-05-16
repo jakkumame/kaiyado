@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      KAMIYADO 〜神宿〜
     </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="logOut()">
@@ -11,15 +11,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<div class="background" style="background-image: url('../../assets/kamiyado背景.jpg');">
+  <ion-content [fullscreen]="true" class="content">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Blank</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+    <div id="container">
+      <div class="button-container">
+        <button class="custom-button">Button 1</button>
+        <button class="custom-button">Button 2</button>
+        <button class="custom-button">Button 3</button>
+      </div>
+    </div>
+  </ion-content>
+</div>

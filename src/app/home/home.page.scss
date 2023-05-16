@@ -25,3 +25,50 @@
 #container a {
   text-decoration: none;
 }
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 800px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  gap: 50px; /* ボタン間の適度なスペース */
+
+}
+
+.custom-button {
+  background-color: navy; /* ボタンの背景色 */
+  color: white;
+  padding: 10px 20px;
+  margin: auto;
+  width: 200px; /* ボタンの幅を設定 */
+  height: 50px; /* ボタンの高さを設定 */
+  border-radius: 9px; /* 丸みの半径を設定 */
+  /* ボタンを浮かせるためのスタイル */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: rgb(30, 32, 180); /* ボタンの背景色 */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.04);
+}
