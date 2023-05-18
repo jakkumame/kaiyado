@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
+
 import { UsualEditPage } from './usual-edit/usual-edit.page';
 import { RouterModule, Routes } from '@angular/router';
-import { MaterialModule } from '../shared/material/material.module';
+import { MaterialModule } from '../shared/material/material.module'
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -21,6 +23,7 @@ const routes: Routes = [
     CommonModule,
     IonicModule,
     MaterialModule,
+    ReactiveFormsModule,
   ],
   exports: [
     RouterModule,

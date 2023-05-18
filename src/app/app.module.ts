@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material/material.module';
 
 import { AppComponent } from './app.component';
@@ -27,6 +27,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     BrowserAnimationsModule,
     IonicModule.forRoot(),
     FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule,
     AngularFireAuthModule,
