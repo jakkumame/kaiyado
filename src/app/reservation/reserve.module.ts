@@ -6,6 +6,8 @@ import { UsualEditPage } from './usual-edit/usual-edit.page';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../shared/material/material.module'
 import { ReactiveFormsModule } from '@angular/forms';
+import { FirestoreModule } from '@angular/fire/firestore';
+
 
 const routes: Routes = [
   {
@@ -24,6 +26,7 @@ const routes: Routes = [
     IonicModule,
     MaterialModule,
     ReactiveFormsModule,
+    FirestoreModule,
   ],
   exports: [
     RouterModule,
