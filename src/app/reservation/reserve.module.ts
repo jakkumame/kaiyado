@@ -17,7 +17,7 @@ const routes: Routes = [
     UsualEditPage
   ],
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forChild(routes),
     CommonModule,
     IonicModule,
     MaterialModule,
