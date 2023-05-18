@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { IonicSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-usual-edit',
@@ -35,7 +34,6 @@ export class UsualEditPage {
       チェックアウト日: [''],
       チェックアウト時間: ['']
     });
-    this.title = 'ウィザードフォーム';
     // チェックイン・アウト日の最小値と最大値を設定
     this.generateDates();
   }
