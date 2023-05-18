@@ -22,8 +22,8 @@ const routes: Routes = [
       // canActivate: [AuthGuard],
   },
   {
-    path: 'usual-edit',
-    loadChildren: () => import('./reservation/usual-edit/usual-edit.module').then( m => m.UsualEditPageModule)
+    path: 'reserve',
+    loadChildren: () => import('./reservation/reserve.module').then( m => m.ReserveModule)
   },
 ];
 @NgModule({
