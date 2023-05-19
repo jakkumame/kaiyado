@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { ReserveService } from 'src/app/service/reserve/reserve.service';
 
 
 
@@ -17,7 +18,8 @@ export class UsualEditPage implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private angularFirestore: AngularFirestore
+    private angularFirestore: AngularFirestore,
+    private reserveService: ReserveService
     ) {
     this.form = this.formBuilder.group({
       利用人数: ['1'],
@@ -44,7 +46,7 @@ export class UsualEditPage implements OnInit {
   }
 
   ngOnInit() {
-    this.getDataFromFirestore();
+    this.getData();
   }
 
   generateDates() {
@@ -59,29 +61,21 @@ export class UsualEditPage implements OnInit {
     }
   }
 
-  getDataFromFirestore() {
-    const docId = 'your_document_id'; // ドキュメントのIDを指定
+  getData() {
+    const docId = 'F5aIlkaaYoPlDGsjzzZL';
 
-    this.angularFirestore
-      .doc<any>('your_collection_name/' + docId)
-      .valueChanges()
-      .subscribe((data) => {
-        if (data) {
-          // Firestoreから取得したデータをフォームにセット
-          this.form.patchValue(data);
-        }
-      });
+    this.reserveService.getDataFromFirestore(docId).subscribe((data) => {
+      if (data) {
+        this.form.patchValue(data);
+      }
+    });
   }
 
-  saveDataToFirestore() {
-    const docId = 'your_document_id'; // ドキュメントのIDを指定
-
-    // フォームの値を取得
+  saveData() {
+    const docId = 'F5aIlkaaYoPlDGsjzzZL';
     const formData = this.form.value;
 
-    this.angularFirestore
-      .doc('your_collection_name/' + docId)
-      .set(formData)
+    this.reserveService.saveDataToFirestore(docId, formData)
       .then(() => {
         console.log('データがFirestoreに保存されました');
       })
@@ -89,6 +83,5 @@ export class UsualEditPage implements OnInit {
         console.error('データの保存中にエラーが発生しました', error);
       });
   }
-  
 
 }
