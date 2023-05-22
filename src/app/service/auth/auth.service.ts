@@ -1,5 +1,5 @@
 import { Injectable, Optional } from '@angular/core';
-import { UserCredential, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { User, UserCredential, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { Auth } from '@angular/fire/auth';
 import { authState } from 'rxfire/auth';
 
@@ -41,6 +41,12 @@ export class AuthService {
   getAuthState() {
     return authState(this.auth);
   }
+
+    // displayNameを取得
+    getDisplayName() {
+      const user: User | null = this.auth.currentUser;
+      return user ? user.displayName : null;
+    }
 
 
 }
