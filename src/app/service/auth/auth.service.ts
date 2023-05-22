@@ -33,12 +33,8 @@ export class AuthService {
 
 
     // ユーザーのログアウト機能
-  async logout(): Promise<void> {
-    try {
-      await signOut(this.auth);
-    } catch (error) {
-      throw new Error('ログアウトに失敗しました。');
-    }
+  logout(): void {
+    signOut(this.auth);
   }
 
     // ユーザーのログイン状態を取得

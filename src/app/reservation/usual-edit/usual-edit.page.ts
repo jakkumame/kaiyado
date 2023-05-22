@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ReserveService } from 'src/app/service/reserve/reserve.service';
 
 
@@ -18,28 +17,27 @@ export class UsualEditPage implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private angularFirestore: AngularFirestore,
     private reserveService: ReserveService
     ) {
     this.form = this.formBuilder.group({
-      利用人数: ['1'],
-      宿泊人数: ['1'],
-      朝食24日: ['1'],
-      昼食24日: ['1'],
-      夕食24日: ['1'],
-      宿泊人数24日: ['1'],
-      朝食25日: ['1'],
-      昼食25日: ['1'],
-      夕食25日: ['1'],
-      宿泊人数25日: ['1'],
-      朝食26日: ['1'],
-      昼食26日: ['1'],
-      夕食26日: ['1'],
-      宿泊人数26日: ['1'],
-      チェックイン日: [''],
-      チェックイン時間: [''],
-      チェックアウト日: [''],
-      チェックアウト時間: ['']
+      宿泊人数: ['',  ],
+      利用人数: ['',  ],
+      朝食24日: ['',  ],
+      昼食24日: ['',  ],
+      夕食24日: ['',  ],
+      宿泊人数24日: ['',  ],
+      朝食25日: ['',  ],
+      昼食25日: ['',  ],
+      夕食25日: ['',  ],
+      宿泊人数25日: ['',  ],
+      朝食26日: ['',  ],
+      昼食26日: ['',  ],
+      夕食26日: ['',  ],
+      宿泊人数26日: ['',  ],
+      チェックイン日: ['',  ],
+      チェックイン時間: ['',  ],
+      チェックアウト日: ['',  ],
+      チェックアウト時間: ['',  ]
     });
     // チェックイン・アウト日の最小値と最大値を設定
     this.generateDates();
@@ -77,7 +75,8 @@ export class UsualEditPage implements OnInit {
 
     this.reserveService.saveDataToFirestore(docId, formData)
       .then(() => {
-        console.log('データがFirestoreに保存されました');
+        // 変数formの値をクリアするresetメソッド
+        this.form.reset();
       })
       .catch((error) => {
         console.error('データの保存中にエラーが発生しました', error);

@@ -10,21 +10,14 @@ import { Router } from '@angular/router';
 export class HomePage {
   constructor(
     private authService: AuthService,
-    private router: Router) {}
+    private router: Router
+    ) {}
 
   logOut() {
-    this.authService.logout()
-      .then(() => {
-        // ログアウト成功時の処理
-        console.log('ログアウト成功');
-        // ログイン画面にリダイレクト
-        this.router.navigateByUrl('/auth/login');
-
-      })
-      .catch((error) => {
-        // ログアウト失敗時の処理
-        console.error('ログアウト失敗:', error);
-        // エラーメッセージの表示などを行うことができます
-      });
+    this.authService.logout();
+    // ログイン画面にリダイレクト
+    this.router.navigateByUrl('/auth/login');
   }
+
+
 }
