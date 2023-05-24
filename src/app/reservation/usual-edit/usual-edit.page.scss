@@ -1,20 +1,46 @@
-// .background {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   z-index: -1;
-// }
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 
-// .content {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   width: 80%;
-//   max-width: 800px;
-//   padding: 20px;
-//   background-color: rgba(255, 255, 255, 0.8);
-//   box-shadow: 0px 0px 13px rgb(0, 0, 0);
-// }
+.tab-button1 {
+  padding: 10px 20px;
+  background-color: rgb(28, 28, 113);
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  // font関係
+  color: white;
+  font-weight: bolder;
+}
+.tab-button2 {
+  padding: 10px 20px;
+  background-color: rgb(33, 33, 162);
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  // font関係
+  color: white;
+  font-weight: bolder;
+}
+.tab-button3 {
+  padding: 10px 20px;
+  background-color: rgb(35, 35, 255);
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  // font関係
+  color: white;
+  font-weight: bolder;
+}
+
+.activeTab1-form {
+  background-color: rgb(127, 127, 138);
+}
+.activeTab2-form {
+  background-color: rgb(181, 181, 236);
+}
+.activeTab3-form {
+  background-color: rgb(230, 255, 198);
+}
