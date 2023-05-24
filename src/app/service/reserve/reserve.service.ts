@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReserveService {
-  constructor(private angularFirestore: AngularFirestore) {}
+  constructor(
+    private angularFirestore: AngularFirestore,
+    private authService: AuthService,
+    ) {}
 
-  getDataFromFirestore(docId: string) {
-    return this.angularFirestore.doc<any>('fukube1/' + docId).valueChanges();
-  }
+    createCollection(churchName: string) {
+      const collectionRef = this.angularFirestore.collection(churchName);
 
-  saveDataToFirestore(docId: string, data: any) {
-    return this.angularFirestore.doc('fukube1/' + docId).set(data);
-  }
+      const docData = { /* ドキュメントのデータ */ };
+
+      collectionRef.doc('reservation1').set(docData);
+      collectionRef.doc('reservation2').set(docData);
+      collectionRef.doc('reservation3').set(docData);
+    }
 }

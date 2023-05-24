@@ -42,11 +42,11 @@ export class AuthService {
     return authState(this.auth);
   }
 
-    // displayNameを取得
-    getDisplayName() {
-      const user: User | null = this.auth.currentUser;
-      return user ? user.displayName : null;
-    }
+  // 教会名を取得
+  getDisplayName() {
+    const user: User | null = this.auth.currentUser;
+    return user ? user.displayName : null;
+  }
 
 
 }

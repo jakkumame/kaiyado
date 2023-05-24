@@ -59,15 +59,7 @@
       </ion-row>
     </ion-grid>
   </form>
-  <ion-button (click)="saveData()" [disabled]="!form.valid">保存</ion-button>
-  <!-- リアクティブフォームのバリデーションエラー -->
-  <div *ngIf="form.errors && (form.dirty || form.touched)">
-    <div *ngIf="form.errors">
-      入力必須項目に誤りがあります。ご確認ください。
-    </div>
-    <div *ngIf="form.errors">
-      ユーザー名は最低4文字である必要があります。
-    </div>
-  </div>
+<ion-button (submit)="saveData()" [disabled]="!form.valid">保存</ion-button>
+
 </ion-content>
 

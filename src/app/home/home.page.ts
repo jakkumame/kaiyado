@@ -13,14 +13,13 @@ export class HomePage implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
     ) {}
 
   async ngOnInit(): Promise<void> {
     const displayName = this.authService.getDisplayName();
 
     if (displayName === null) {
-      // モーダルの表示処理を実装する
       const modal = await this.modalCtrl.create({
         component: ProfileModalComponent,
         backdropDismiss: false,

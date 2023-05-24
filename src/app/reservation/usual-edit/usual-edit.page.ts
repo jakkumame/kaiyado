@@ -1,3 +1,4 @@
+import { AuthService } from './../../service/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ReserveService } from 'src/app/service/reserve/reserve.service';
@@ -9,7 +10,7 @@ import { ReserveService } from 'src/app/service/reserve/reserve.service';
   templateUrl: './usual-edit.page.html',
   styleUrls: ['./usual-edit.page.scss'],
 })
-export class UsualEditPage implements OnInit {
+export class UsualEditPage {
   form: FormGroup;
   title: string;
   checkInDates: Date[] = [];
@@ -17,7 +18,8 @@ export class UsualEditPage implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private reserveService: ReserveService
+    private reserveService: ReserveService,
+    private authService: AuthService,
     ) {
     this.form = this.formBuilder.group({
       宿泊人数: ['',  ],
@@ -43,9 +45,6 @@ export class UsualEditPage implements OnInit {
     this.generateDates();
   }
 
-  ngOnInit() {
-    this.getData();
-  }
 
   generateDates() {
     const currentDate = new Date();
@@ -59,28 +58,6 @@ export class UsualEditPage implements OnInit {
     }
   }
 
-  getData() {
-    const docId = 'F5aIlkaaYoPlDGsjzzZL';
-
-    this.reserveService.getDataFromFirestore(docId).subscribe((data) => {
-      if (data) {
-        this.form.patchValue(data);
-      }
-    });
-  }
-
-  saveData() {
-    const docId = 'F5aIlkaaYoPlDGsjzzZL';
-    const formData = this.form.value;
-
-    this.reserveService.saveDataToFirestore(docId, formData)
-      .then(() => {
-        // 変数formの値をクリアするresetメソッド
-        this.form.reset();
-      })
-      .catch((error) => {
-        console.error('データの保存中にエラーが発生しました', error);
-      });
-  }
+  saveData() {}
 
 }
