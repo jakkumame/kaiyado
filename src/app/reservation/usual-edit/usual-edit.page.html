@@ -12,7 +12,7 @@
   </div>
   <div class="tab-content">
     <div class="activeTab1-form" *ngIf="activeTab === 1">
-      <form [formGroup]="form1" (ngSubmit)="saveData()">
+      <form [formGroup]="form1" (ngSubmit)="saveToFirestore1()">
         <ion-grid>
           <ion-row>
             <ion-col size="6">
@@ -64,11 +64,11 @@
             </ion-col>
           </ion-row>
         </ion-grid>
+        <ion-button type="submit" [disabled]="!form1.valid">保存</ion-button>
       </form>
-    <ion-button type="submit" [disabled]="!form1.valid">保存</ion-button>
     </div>
     <div class="activeTab2-form" *ngIf="activeTab === 2">
-      <form [formGroup]="form2" (ngSubmit)="saveData()">
+      <form [formGroup]="form2" (ngSubmit)="saveToFirestore2()">
         <ion-grid>
           <ion-row>
             <ion-col size="6">
@@ -120,11 +120,11 @@
             </ion-col>
           </ion-row>
         </ion-grid>
+        <ion-button type="submit" [disabled]="!form2.valid">保存</ion-button>
       </form>
-    <ion-button type="submit" [disabled]="!form2.valid">保存</ion-button>
     </div>
     <div class="activeTab3-form" *ngIf="activeTab === 3">
-      <form [formGroup]="form3" (ngSubmit)="saveData()">
+      <form [formGroup]="form3" (ngSubmit)="saveToFirestore3()">
         <ion-grid>
           <ion-row>
             <ion-col size="6">
@@ -176,8 +176,8 @@
             </ion-col>
           </ion-row>
         </ion-grid>
+        <ion-button type="submit" [disabled]="!form3.valid">保存</ion-button>
       </form>
-    <ion-button type="submit" [disabled]="!form3.valid">保存</ion-button>
     </div>
   </div>
 </ion-content>
