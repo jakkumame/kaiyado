@@ -49,6 +49,9 @@ export class UsualEditPage implements OnInit {
     this.form1 = this.formBuilder.group(formConfig);
     this.form2 = this.formBuilder.group(formConfig);
     this.form3 = this.formBuilder.group(formConfig);
+
+
+    this.generateDates();
   }
 
   ngOnInit() {
@@ -60,8 +63,6 @@ export class UsualEditPage implements OnInit {
         this.reserveService.getDocumentData(this.churchName, 'reservation1', this.form1);
         this.reserveService.getDocumentData(this.churchName, 'reservation2', this.form2);
         this.reserveService.getDocumentData(this.churchName, 'reservation3', this.form3);
-
-        this.generateDates();
       }
     });
   }
