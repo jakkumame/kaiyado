@@ -24,10 +24,6 @@ const routes: Routes = [
     path: 'reserve',
     loadChildren: () => import('./reservation/reserve.module').then( m => m.ReserveModule)
   },
-  {
-    path: 'usual-reserve',
-    loadChildren: () => import('./reservation/usual-reserve/usual-reserve.module').then( m => m.UsualReservePageModule)
-  },
 ];
 @NgModule({
   imports: [

@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule  } from '@angular/fire/compat/firestore';
 import { SharedModule } from '../shared/shared.module';
+import { UsualReservePage } from './usual-reserve/usual-reserve.page';
 
 
 
@@ -17,12 +18,17 @@ const routes: Routes = [
   {
     path: 'usual-edit',
     component: UsualEditPage
-  }
+  },
+  {
+    path: 'usual-reserve',
+    component: UsualReservePage
+  },
 ];
 
 @NgModule({
   declarations: [
-    UsualEditPage
+    UsualEditPage,
+    UsualReservePage
   ],
   imports: [
     RouterModule.forChild(routes),
