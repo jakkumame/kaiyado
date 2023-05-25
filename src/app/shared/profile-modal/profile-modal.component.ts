@@ -1,5 +1,4 @@
 import { ReserveService } from 'src/app/service/reserve/reserve.service';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Component, OnInit } from '@angular/core';
 import { churchList } from './churchlist';
 import { AngularFireAuth } from '@angular/fire/compat/auth';

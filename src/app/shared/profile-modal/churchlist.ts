@@ -3,7 +3,7 @@ export const churchList = [
   { label: '西上', value: 'nisigami' },
   { label: '神芦生', value: 'kamiasyu' },
   { label: '仁志', value: 'nishi' },
-  { label: '神市川', value: 'kamiitikawa' },
+  { label: '神市川', value: 'kamiichikawa' },
   { label: '南小田', value: 'minamioda' },
   { label: '神姫路', value: 'kamihimezi' },
   { label: '神姫', value: 'kamihime' },

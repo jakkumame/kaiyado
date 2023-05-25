@@ -11,6 +11,5 @@
       <ion-select-option *ngFor="let item of churchList" [value]="item.value">{{ item.label }}</ion-select-option>
     </ion-select>
   </ion-item>
-  <p>選択された値: {{ selectedItem }}</p>
   <ion-button (click)="saveDisplayName()">保存</ion-button>
 </ion-content>

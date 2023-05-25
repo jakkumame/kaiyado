@@ -10,6 +10,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule  } from '@angular/fire/compat/firestore';
 import { SharedModule } from '../shared/shared.module';
 import { UsualReservePage } from './usual-reserve/usual-reserve.page';
+import { UsualReserveModalComponent } from '../shared/usual-reserve-modal/usual-reserve-modal.component';
 
 
 
@@ -28,7 +29,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     UsualEditPage,
-    UsualReservePage
+    UsualReservePage,
+    UsualReserveModalComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
