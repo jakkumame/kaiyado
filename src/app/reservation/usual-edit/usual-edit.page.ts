@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, DocumentSnapshot } from '@angular/fire/compat/firestore';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -64,9 +64,15 @@ export class UsualEditPage implements OnInit {
     this.auth.user.subscribe((user) => {
       if (user) {
         this.churchName = user.displayName!;
+        // 使用例
+        this.getDocumentData('reservation1', this.form1);
+        this.getDocumentData('reservation2', this.form2);
+        this.getDocumentData('reservation3', this.form3);
       }
     });
   }
+
+
 
 
   generateDates() {
@@ -80,6 +86,22 @@ export class UsualEditPage implements OnInit {
       this.checkOutDates.push(date);
     }
   }
+
+  // ドキュメントのデータを取得してフォームにバインドのためのメソッド
+  getDocumentData(reservationNumber: string, form: FormGroup) {
+    const collectionName = this.churchName;
+
+    this.firestore.collection(collectionName).doc<any>(reservationNumber).get()
+      .subscribe((snapshot: DocumentSnapshot<any>) => {
+        const data = snapshot.data();
+        form.setValue(data);
+      });
+  }
+
+
+
+
+
 
   saveToFirestore(formValue: {}, reservationNumber: string ) {
     const collectionName = this.churchName;
