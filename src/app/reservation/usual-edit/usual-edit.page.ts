@@ -60,8 +60,22 @@ export class UsualEditPage implements OnInit {
         this.reserveService.getDocumentData(this.churchName, 'reservation1', this.form1);
         this.reserveService.getDocumentData(this.churchName, 'reservation2', this.form2);
         this.reserveService.getDocumentData(this.churchName, 'reservation3', this.form3);
+
+        this.generateDates();
       }
     });
+  }
+
+  generateDates() {
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
+
+    for (let i = 24; i <= 26; i++) {
+      const date = new Date(currentYear, currentMonth, i);
+      this.checkInDates.push(date);
+      this.checkOutDates.push(date);
+    }
   }
 
   saveToFirestore1() {
