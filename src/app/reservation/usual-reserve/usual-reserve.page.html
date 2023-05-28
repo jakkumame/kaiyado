@@ -15,12 +15,26 @@
 
       <div id="container">
         <div class="button-container">
-          <button class="custom-button">予約1</button>
-          <button class="custom-button">予約2</button>
-          <button class="custom-button">予約3</button>
+          <ion-button (click)="getData(1)">Button 1</ion-button>
+          <ion-button (click)="getData(2)">Button 2</ion-button>
+          <ion-button (click)="getData(3)">Button 3</ion-button>
+          <div *ngIf="documentData">
+            <p>チェックアウト{{ documentData['チェックアウト日']}} {{ documentData['チェックアウト時間']}}</p>
+            <p>チェックイン{{ documentData['チェックイン日']}} {{ documentData['チェックアウト時間']}}</p>
+            <p>{{ documentData['利用人数']}}</p>
+            <p>{{ documentData['夕食24日']}}</p>
+            <p>{{ documentData['宿泊人数24日']}}</p>
+            <p>{{ documentData['朝食25日']}}</p>
+            <p>{{ documentData['昼食25日']}}</p>
+            <p>{{ documentData['夕食25日']}}</p>
+            <p>{{ documentData['宿泊人数25日']}}</p>
+            <p>{{ documentData['朝食26日']}}</p>
+            <p>{{ documentData['昼食26日']}}</p>
+            <p>{{ documentData['夕食26日']}}</p>
+            <p>{{ documentData['宿泊人数26日']}}</p>
+          </div>
         </div>
       </div>
     </ion-content>
   </div>
-
 </ion-content>

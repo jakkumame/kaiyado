@@ -12,7 +12,7 @@ import { IonicModule } from '@ionic/angular';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-  ]
+  ],
 
 })
 export class SharedModule { }
