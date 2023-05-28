@@ -26,7 +26,6 @@ export class UsualEditPage implements OnInit {
     private router: Router
   ) {
     const formConfig = {
-      宿泊人数: ['', Validators.required],
       利用人数: ['', Validators.required],
       朝食24日: ['', Validators.required],
       昼食24日: ['', Validators.required],

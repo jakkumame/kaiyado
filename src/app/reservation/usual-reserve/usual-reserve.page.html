@@ -19,8 +19,8 @@
           <ion-button (click)="getData(2)">Button 2</ion-button>
           <ion-button (click)="getData(3)">Button 3</ion-button>
           <div *ngIf="documentData">
-            <p>チェックアウト{{ documentData['チェックアウト日']}} {{ documentData['チェックアウト時間']}}</p>
-            <p>チェックイン{{ documentData['チェックイン日']}} {{ documentData['チェックアウト時間']}}</p>
+            <p>チェックアウト {{ documentData['チェックアウト日']}} {{ documentData['チェックアウト時間']}}</p>
+            <p>チェックイン {{ documentData['チェックイン日']}} {{ documentData['チェックイン時間']}}</p>
             <p>{{ documentData['利用人数']}}</p>
             <p>{{ documentData['夕食24日']}}</p>
             <p>{{ documentData['宿泊人数24日']}}</p>

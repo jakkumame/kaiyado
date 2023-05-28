@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-usual-reserve',
   templateUrl: './usual-reserve.page.html',
@@ -12,7 +14,8 @@ export class UsualReservePage implements OnInit {
 
   constructor(
     private firestore: AngularFirestore,
-    private auth: AngularFireAuth
+    private auth: AngularFireAuth,
+    private datePipe: DatePipe
     ) {
 
     }
@@ -27,15 +30,35 @@ export class UsualReservePage implements OnInit {
   }
 
   getData(documentNumber: number) {
-    const churchName = this.churchName
+    const churchName = this.churchName;
     const documentRef = this.firestore.collection(churchName).doc(`reservation${documentNumber}`);
+
     documentRef.get().subscribe((doc) => {
       if (doc.exists) {
         this.documentData = doc.data();
+        this.formatDateTime();
       } else {
         console.log('ドキュメントが見つかりませんでした。');
       }
     });
+  }
+
+  formatDateTime() {
+    this.documentData['チェックアウト日'] = this.formatDate(this.documentData['チェックアウト日']);
+    this.documentData['チェックイン日'] = this.formatDate(this.documentData['チェックイン日']);
+
+    this.documentData['チェックアウト時間'] = this.formatTime(this.documentData['チェックアウト時間']);
+    this.documentData['チェックイン時間'] = this.formatTime(this.documentData['チェックイン時間']);
+  }
+
+  formatDate(date: any): string {
+    const formattedDate = this.datePipe.transform(date, 'MM月dd日');
+    return formattedDate || '';
+  }
+
+  formatTime(time: any): string {
+    const formattedTime = this.datePipe.transform(time, 'HH:mm');
+    return formattedTime || '';
   }
 
 
