@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-
 @Component({
   selector: 'app-usual-reserve',
   templateUrl: './usual-reserve.page.html',

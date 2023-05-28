@@ -2,19 +2,22 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentSnapshot } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReserveService {
   constructor(
-    private angularFirestore: AngularFirestore,
     private firestore: AngularFirestore,
-    private router: Router
+    private router: Router,
+    public http: HttpClient,
     ) {}
 
   createCollection(churchName: string) {
-    const collectionRef = this.angularFirestore.collection(churchName);
+    const collectionRef = this.firestore.collection(churchName);
 
     const docData = { /* ドキュメントのデータ */ };
 
@@ -25,14 +28,21 @@ export class ReserveService {
 
 
 
-  getDocumentData(churchName: string, reservationNumber: string, form: FormGroup) {
+  getDocumentData(churchName: string, reservationNumber: string, form: FormGroup): Observable<any> {
     const collectionName = churchName;
 
-    this.firestore.collection(collectionName).doc<any>(reservationNumber).get()
-      .subscribe((snapshot: DocumentSnapshot<any>) => {
-        const data = snapshot.data();
-        form.setValue(data);
-      });
+    return new Observable<any>((observer) => {
+      this.firestore.collection(collectionName).doc<any>(reservationNumber).get()
+        .subscribe((snapshot: DocumentSnapshot<any>) => {
+          const data = snapshot.data();
+          form.setValue(data);
+          // Observableで返す
+          observer.next(data);
+          observer.complete();
+        }, (error) => {
+          observer.error(error);
+        });
+    });
   }
 
 

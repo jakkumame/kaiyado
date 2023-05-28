@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Modal Title
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      Reservation Details
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Reservation 1</ion-label>
+        <ion-input type="text" [(ngModel)]="form.reservation1" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Reservation 2</ion-label>
+        <ion-input type="text" [(ngModel)]="form.reservation2" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Reservation 3</ion-label>
+        <ion-input type="text" [(ngModel)]="form.reservation3" readonly></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

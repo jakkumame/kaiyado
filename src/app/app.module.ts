@@ -19,6 +19,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
