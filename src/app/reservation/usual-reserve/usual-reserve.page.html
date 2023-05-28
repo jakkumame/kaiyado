@@ -15,9 +15,11 @@
 
       <div id="container">
         <div class="button-container">
-          <button class="custom-button">予約1</button>
-          <button class="custom-button">予約2</button>
-          <button class="custom-button">予約3</button>
+          <!-- 3つのボタンを設置 -->
+          <ion-button (click)="onButtonClick('reservation1')">Reservation 1</ion-button>
+          <ion-button (click)="onButtonClick('reservation2')">Reservation 2</ion-button>
+          <ion-button (click)="onButtonClick('reservation3')">Reservation 3</ion-button>
+
         </div>
       </div>
     </ion-content>

@@ -5,11 +5,12 @@ import { IonicModule } from '@ionic/angular';
 import { UsualEditPage } from './usual-edit/usual-edit.page';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../shared/material/material.module'
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule  } from '@angular/fire/compat/firestore';
 import { SharedModule } from '../shared/shared.module';
 import { UsualReservePage } from './usual-reserve/usual-reserve.page';
+import { ReservationModalComponent } from '../shared/reservation-modal/reservation-modal.component';
 
 
 
@@ -29,16 +30,20 @@ const routes: Routes = [
   declarations: [
     UsualEditPage,
     UsualReservePage,
+    ReservationModalComponent
+
   ],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
     IonicModule,
+    FormsModule,
     MaterialModule,
     ReactiveFormsModule,
     AngularFireModule,
     AngularFirestoreModule,
-    SharedModule
+    SharedModule,
+
   ],
   exports: [
     RouterModule,
