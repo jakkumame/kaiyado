@@ -4,37 +4,36 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="background" style="background-image: url('../../assets/kamiyado背景.jpg');">
-    <ion-content [fullscreen]="true" class="content">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
+<div class="background" style="background-image: url('../../assets/kamiyado背景.jpg');">
+  <ion-content [fullscreen]="true" class="content">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Blank</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-      <div id="container">
-        <div class="button-container">
-          <ion-button (click)="getData(1)">Button 1</ion-button>
-          <ion-button (click)="getData(2)">Button 2</ion-button>
-          <ion-button (click)="getData(3)">Button 3</ion-button>
-          <div *ngIf="documentData">
-            <p>チェックアウト {{ documentData['チェックアウト日']}} {{ documentData['チェックアウト時間']}}</p>
-            <p>チェックイン {{ documentData['チェックイン日']}} {{ documentData['チェックイン時間']}}</p>
-            <p>{{ documentData['利用人数']}}</p>
-            <p>{{ documentData['夕食24日']}}</p>
-            <p>{{ documentData['宿泊人数24日']}}</p>
-            <p>{{ documentData['朝食25日']}}</p>
-            <p>{{ documentData['昼食25日']}}</p>
-            <p>{{ documentData['夕食25日']}}</p>
-            <p>{{ documentData['宿泊人数25日']}}</p>
-            <p>{{ documentData['朝食26日']}}</p>
-            <p>{{ documentData['昼食26日']}}</p>
-            <p>{{ documentData['夕食26日']}}</p>
-            <p>{{ documentData['宿泊人数26日']}}</p>
-          </div>
+    <div id="container">
+      <div class="button-container">
+        <button class="custom-button" (click)="getData(1)">予約 1</button>
+        <button class="custom-button" (click)="getData(2)">予約 2</button>
+        <button class="custom-button" (click)="getData(3)">予約 3</button>
+        <div *ngIf="documentData">
+          <p>チェックアウト {{ documentData['チェックアウト日']}} {{ documentData['チェックアウト時間']}}</p>
+          <p>チェックイン {{ documentData['チェックイン日']}} {{ documentData['チェックイン時間']}}</p>
+          <p>{{ documentData['利用人数']}}</p>
+          <p>{{ documentData['夕食24日']}}</p>
+          <p>{{ documentData['宿泊人数24日']}}</p>
+          <p>{{ documentData['朝食25日']}}</p>
+          <p>{{ documentData['昼食25日']}}</p>
+          <p>{{ documentData['夕食25日']}}</p>
+          <p>{{ documentData['宿泊人数25日']}}</p>
+          <p>{{ documentData['朝食26日']}}</p>
+          <p>{{ documentData['昼食26日']}}</p>
+          <p>{{ documentData['夕食26日']}}</p>
+          <p>{{ documentData['宿泊人数26日']}}</p>
+          <ion-button>これで予約する</ion-button>
         </div>
       </div>
-    </ion-content>
-  </div>
-</ion-content>
+    </div>
+  </ion-content>
+</div>

@@ -1,7 +1,7 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-usual-reserve',
@@ -43,6 +43,7 @@ export class UsualReservePage implements OnInit {
     });
   }
 
+
   formatDateTime() {
     this.documentData['チェックアウト日'] = this.formatDate(this.documentData['チェックアウト日']);
     this.documentData['チェックイン日'] = this.formatDate(this.documentData['チェックイン日']);
@@ -57,9 +58,14 @@ export class UsualReservePage implements OnInit {
   }
 
   formatTime(time: any): string {
-    const formattedTime = this.datePipe.transform(time, 'HH:mm');
-    return formattedTime || '';
+    if (time && typeof time === 'string') {
+      const parts = time.split(':');
+      if (parts.length === 2) {
+        const hour = parts[0];
+        const minute = parts[1];
+        return `${hour}:${minute}`;
+      }
+    }
+    return '';
   }
-
-
 }
