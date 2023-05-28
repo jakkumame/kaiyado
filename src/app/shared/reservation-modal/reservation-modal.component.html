@@ -1,34 +1,55 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Modal Title
-    </ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="closeModal()">
-        <ion-icon name="close"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+    <ion-title>予約確認</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      Reservation Details
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-label>Reservation 1</ion-label>
-        <ion-input type="text" [(ngModel)]="form.reservation1" readonly></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Reservation 2</ion-label>
-        <ion-input type="text" [(ngModel)]="form.reservation2" readonly></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Reservation 3</ion-label>
-        <ion-input type="text" [(ngModel)]="form.reservation3" readonly></ion-input>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+  <div>
+    <ion-label for="checkoutDate">チェックアウト日</ion-label>
+    <ion-input type="text" id="checkoutDate" value="{{ documentData?.['チェックアウト日']}}"></ion-input>
+
+    <ion-label for="checkoutTime">チェックアウト時間</ion-label>
+    <ion-input type="text" id="checkoutTime" value="{{ documentData?.['チェックアウト時間']}}"></ion-input>
+
+    <ion-label for="checkinDate">チェックイン日</ion-label>
+    <ion-input type="text" id="checkinDate" value="{{ documentData?.['チェックイン日']}}"></ion-input>
+
+    <ion-label for="checkinTime">チェックイン時間</ion-label>
+    <ion-input type="text" id="checkinTime" value="{{ documentData?.['チェックイン時間']}}"></ion-input>
+
+    <ion-label for="guestCount">利用人数</ion-label>
+    <ion-input type="text" id="guestCount" value="{{ documentData?.['利用人数']}}"></ion-input>
+
+    <ion-label for="dinner24">夕食24日</ion-label>
+    <ion-input type="text" id="dinner24" value="{{ documentData?.['夕食24日']}}"></ion-input>
+
+    <ion-label for="guestCount24">宿泊人数24日</ion-label>
+    <ion-input type="text" id="guestCount24" value="{{ documentData?.['宿泊人数24日']}}"></ion-input>
+
+    <ion-label for="breakfast25">朝食25日</ion-label>
+    <ion-input type="text" id="breakfast25" value="{{ documentData?.['朝食25日']}}"></ion-input>
+
+    <ion-label for="lunch25">昼食25日</ion-label>
+    <ion-input type="text" id="lunch25" value="{{ documentData?.['昼食25日']}}"></ion-input>
+
+    <ion-label for="dinner25">夕食25日</ion-label>
+    <ion-input type="text" id="dinner25" value="{{ documentData?.['夕食25日']}}"></ion-input>
+
+    <ion-label for="guestCount25">宿泊人数25日</ion-label>
+    <ion-input type="text" id="guestCount25" value="{{ documentData?.['宿泊人数25日']}}"></ion-input>
+
+    <ion-label for="breakfast26">朝食26日</ion-label>
+    <ion-input type="text" id="breakfast26" value="{{ documentData?.['朝食26日']}}"></ion-input>
+
+    <ion-label for="lunch26">昼食26日</ion-label>
+    <ion-input type="text" id="lunch26" value="{{ documentData?.['昼食26日']}}"></ion-input>
+
+    <ion-label for="dinner26">夕食26日</ion-label>
+    <ion-input type="text" id="dinner26" value="{{ documentData?.['夕食26日']}}"></ion-input>
+
+    <ion-label for="guestCount26">宿泊人数26日</ion-label>
+    <ion-input type="text" id="guestCount26" value="{{ documentData?.['宿泊人数26日']}}"></ion-input>
+  </div>
+  <ion-button>送信</ion-button>
+  <ion-button (click)="closeModal()">閉じる</ion-button>
 </ion-content>

@@ -2,6 +2,8 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { ModalController } from '@ionic/angular';
+import { ReservationModalComponent } from 'src/app/shared/reservation-modal/reservation-modal.component';
 
 @Component({
   selector: 'app-usual-reserve',
@@ -15,6 +17,7 @@ export class UsualReservePage implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private auth: AngularFireAuth,
+    private modalController: ModalController,
     private datePipe: DatePipe
     ) {
 
@@ -29,19 +32,21 @@ export class UsualReservePage implements OnInit {
     });
   }
 
-  getData(documentNumber: number) {
-    const churchName = this.churchName;
-    const documentRef = this.firestore.collection(churchName).doc(`reservation${documentNumber}`);
+async openModal(documentNumber: number) {
+  // 予約データを取得
+  const churchName = this.churchName;
+  const documentRef = this.firestore.collection(churchName).doc(`reservation${documentNumber}`);
 
-    documentRef.get().subscribe((doc) => {
-      if (doc.exists) {
-        this.documentData = doc.data();
-        this.formatDateTime();
-      } else {
-        console.log('ドキュメントが見つかりませんでした。');
-      }
-    });
-  }
+  documentRef.get().subscribe((doc) => {
+    if (doc.exists) {
+      this.documentData = doc.data();
+      this.formatDateTime();
+      this.presentModal(this.documentData);
+    } else {
+      console.log('ドキュメントが見つかりませんでした。');
+    }
+  });
+}
 
 
   formatDateTime() {
@@ -67,5 +72,16 @@ export class UsualReservePage implements OnInit {
       }
     }
     return '';
+  }
+
+  async presentModal(modalToDocumentData: any) {
+    const modal = await this.modalController.create({
+      component: ReservationModalComponent,
+      componentProps: {
+        documentData: modalToDocumentData,
+      },
+    });
+
+    return await modal.present();
   }
 }

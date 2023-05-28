@@ -14,25 +14,9 @@
 
     <div id="container">
       <div class="button-container">
-        <button class="custom-button" (click)="getData(1)">予約 1</button>
-        <button class="custom-button" (click)="getData(2)">予約 2</button>
-        <button class="custom-button" (click)="getData(3)">予約 3</button>
-        <div *ngIf="documentData">
-          <p>チェックアウト {{ documentData['チェックアウト日']}} {{ documentData['チェックアウト時間']}}</p>
-          <p>チェックイン {{ documentData['チェックイン日']}} {{ documentData['チェックイン時間']}}</p>
-          <p>{{ documentData['利用人数']}}</p>
-          <p>{{ documentData['夕食24日']}}</p>
-          <p>{{ documentData['宿泊人数24日']}}</p>
-          <p>{{ documentData['朝食25日']}}</p>
-          <p>{{ documentData['昼食25日']}}</p>
-          <p>{{ documentData['夕食25日']}}</p>
-          <p>{{ documentData['宿泊人数25日']}}</p>
-          <p>{{ documentData['朝食26日']}}</p>
-          <p>{{ documentData['昼食26日']}}</p>
-          <p>{{ documentData['夕食26日']}}</p>
-          <p>{{ documentData['宿泊人数26日']}}</p>
-          <ion-button>これで予約する</ion-button>
-        </div>
+        <button class="custom-button" (click)="openModal(1)">予約 1</button>
+        <button class="custom-button" (click)="openModal(2)">予約 2</button>
+        <button class="custom-button" (click)="openModal(3)">予約 3</button>
       </div>
     </div>
   </ion-content>

@@ -8,7 +8,7 @@ import { ModalController } from '@ionic/angular'
   styleUrls: ['./reservation-modal.component.scss'],
 })
 export class ReservationModalComponent  {
-  @Input() form: any;
+  @Input()documentData : any;
 
   constructor(private modalController: ModalController) {}
 
