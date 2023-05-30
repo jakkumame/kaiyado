@@ -5,8 +5,10 @@
 </ion-header>
 <ion-content>
   <div>
-    <ion-label for="checkoutDate">チェックアウト日</ion-label>
-    <ion-input type="text" id="checkoutDate" value="{{ documentData?.['チェックアウト日']}}"></ion-input>
+    <ion-input label="チェックアウト" type="text" id="checkoutDate" value="{{ documentData?.['チェックアウト日']}}" [readonly]="true"></ion-input>
+
+    <ion-label for="applicant">申込者</ion-label>
+    <ion-input type="text" id="applicant" value="{{ documentData?.['申込者']}}"></ion-input>
 
     <ion-label for="checkoutTime">チェックアウト時間</ion-label>
     <ion-input type="text" id="checkoutTime" value="{{ documentData?.['チェックアウト時間']}}"></ion-input>
